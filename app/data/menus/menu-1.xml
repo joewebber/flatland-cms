@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu menu-id="1" menu-name="Main Menu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../lib/schemas/menu.xsd">
+    <item>
+      <title>Home</title>
+      <slug></slug>
+      <index>1</index>
+      <parent>0</parent>
+      <page>home</page>
+      <head-page-title>Home page</head-page-title>
+      <head-meta-description>Description of the home page</head-meta-description>
+    </item>
+</menu>
