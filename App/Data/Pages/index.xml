@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../lib/schemas/page.xsd">
     <title>Home</title>
+    <filename>index.html</filename>
+    <head-page-title>Home page</head-page-title>
+    <head-meta-description>Description of the home page</head-meta-description>
     <content><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a enim vel nunc tempor pretium. Pellentesque urna magna, mattis non maximus eu, hendrerit et quam. Ut et dolor sed ex interdum dictum at eget quam. Proin faucibus aliquam tellus, in rhoncus leo convallis non. Mauris suscipit suscipit magna non tincidunt. Pellentesque malesuada imperdiet est ut vehicula. Fusce rutrum, felis in venenatis sodales, ante felis ultricies lorem, et blandit dolor lectus id tellus. Donec congue felis nisl, ac elementum ipsum venenatis vel. Vestibulum volutpat arcu non gravida sodales. In et laoreet libero. Donec turpis ex, volutpat non libero id, rhoncus cursus eros. Vivamus ipsum dui, tempus in turpis sed, viverra tincidunt magna.</p>]]></content>
 </page>

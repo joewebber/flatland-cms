@@ -12,8 +12,6 @@
                 <xs:element name="index" type="xs:integer"/>
                 <xs:element name="parent" type="xs:string"/>
                 <xs:element name="page" type="xs:string"/>
-                <xs:element name="head-page-title" type="xs:string"/>
-                <xs:element name="head-meta-description" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
