@@ -13,7 +13,14 @@ final class Generator
 
     protected $_modules = array();
 
-    public function __construct()
+    public function __construct($method = '_index')
+    {
+
+        $this->$method();
+
+    }
+
+    protected function _index()
     {
 
         $this->_getMenus();
@@ -23,6 +30,8 @@ final class Generator
         $this->_getModules();
 
         $this->_writePages();
+
+        include (APP_ROOT . '/Views/Generator/index.php');
 
     }
 
