@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <!-- definition of attributes -->
-    <xs:attribute name="title" type="xs:string"/>
-    <xs:attribute name="filename" type="xs:string"/>
-    <xs:attribute name="head-page-title" type="xs:string"/>
-    <xs:attribute name="head-meta-description" type="xs:string"/>
-    <xs:attribute name="content" type="xs:string"/>
-</xs:schema>
