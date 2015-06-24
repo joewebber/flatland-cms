@@ -1,2 +1,5 @@
 .DS_Store
-web/*
+web/*.html
+web/css/*
+web/images/*
+web/js/*

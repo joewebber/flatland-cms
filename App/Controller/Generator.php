@@ -102,7 +102,7 @@ final class Generator
 
             $data = \Helper\Xml::parseFile(APP_ROOT . '/Data/Menus/' . $file);
 
-            $this->_menus[pathinfo($file, PATHINFO_FILENAME)] = $data['item'];
+            $this->_menus[pathinfo($file, PATHINFO_FILENAME)] = $data['items'];
 
         }
 
@@ -170,9 +170,9 @@ final class Generator
 
                 $data = str_replace('{' . $key . '}', $val, $data);
 
-                $data = str_replace("\n", '', $data);
-
             }
+
+            $data .= "\n";
 
             return $data;
 
