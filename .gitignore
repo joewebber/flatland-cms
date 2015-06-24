@@ -1,5 +1,7 @@
 .DS_Store
 web/*.html
-web/css/*
-web/images/*
-web/js/*
+web/css/*.css
+web/images/*.jpg
+web/images/*.gif
+web/images/*.png
+web/js/*.js
