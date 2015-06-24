@@ -1,4 +1,3 @@
-# Flatland CMS
 Flatland is a static website generator, created with the intention of being extremely lightweight and not dependant on any third-party libs. It uses XML for data storage, and PHP for backend.
 
 Templates
