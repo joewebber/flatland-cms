@@ -31,8 +31,6 @@ final class Generator
 
         $this->_writePages();
 
-        include (APP_ROOT . '/Views/Generator/index.php');
-
     }
 
     protected function _writePages()
