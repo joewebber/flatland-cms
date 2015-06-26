@@ -111,10 +111,14 @@ final class Generator
     protected function _getPages()
     {
 
+        $Parsedown = new \Parsedown;
+
         foreach (\Helper\Folder::listFiles(APP_ROOT . '/Data/Pages') as $file)
         {
 
             $data = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file);
+
+            $data['content'] = $Parsedown->text(file_get_contents(APP_ROOT . '/Data/Content/' . str_replace('.xml', '', $file) . '.md'));
 
             $this->_pages[pathinfo($file, PATHINFO_FILENAME)] = $data;
 
