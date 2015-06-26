@@ -9,7 +9,7 @@ These can be used within content to enable module embedding.
 Data
 ----
 
-Check the XML schemas in "App/Lib/Schemas" for an overview of the data models. This should give you an idea of how to add content to your site.
+Check the XML schemas in "App/Lib/Schemas" for an overview of the data models. This should give you an idea of how to add content to your site. Page content is authored using [markdown syntax](http://daringfireball.net/projects/markdown/syntax)
 
 Layout
 ------
@@ -33,3 +33,8 @@ License
 Feel free to use and distribute.
 
 This is currently a work in progress, I will update as I add more features.
+
+Credits
+-------
+
+[Parsedown](https://github.com/erusev/parsedown)
