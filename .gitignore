@@ -1,4 +1,6 @@
 .DS_Store
+composer.phar
+vendor/
 web/*.html
 web/css/*.css
 web/images/*.jpg

@@ -26,6 +26,6 @@ function flatland_autoloader($className)
 
 }
 
-//-------------------------------------
+require(APP_ROOT . '../vendor/autoload.php');
 
 new \Controller\Generator;
