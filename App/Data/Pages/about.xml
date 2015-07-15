@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../lib/schemas/page.xsd">
+    <title>About</title>
+    <filename>about.html</filename>
+    <head-page-title>About Us</head-page-title>
+    <head-meta-description>Description of the about page</head-meta-description>
+</page>

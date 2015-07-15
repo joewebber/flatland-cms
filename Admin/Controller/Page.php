@@ -49,4 +49,27 @@ class Page extends Controller
 
     }
 
+    protected function _edit()
+    {
+
+      $file = $this->data['get']['title'];
+
+      // Get page information from xml file
+      $this->data[0] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file . '.xml');
+
+      // Get the content from the markdown file
+      $this->data[0]['content'] = file_get_contents(APP_ROOT . '/Data/Content/' . $file . '.md');
+
+      // Include the view
+      include (ADMIN_ROOT . '/Views/Page/edit.php');
+
+    }
+
+    protected function _save()
+    {
+
+        file_put_contents(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']);
+
+    }
+
 }

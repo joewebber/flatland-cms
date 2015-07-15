@@ -19,7 +19,7 @@ function flatland_autoloader($className)
 
     $path = current($parts);
 
-    if (file_exists($filePath = ADMIN_ROOT . '/' . $path . '/' . end($parts) . '.php') || file_exists($filePath = APP_ROOT . '/' . $path . '/' . end($parts) . '.php'))
+    if (file_exists($filePath = ADMIN_ROOT . '/' . str_replace('Admin', '', $path) . '/' . end($parts) . '.php') || file_exists($filePath = APP_ROOT . '/' . str_replace('Admin', '', $path) . '/' . end($parts) . '.php'))
     {
         include $filePath;
     }

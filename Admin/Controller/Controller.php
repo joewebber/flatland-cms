@@ -10,6 +10,11 @@ abstract class Controller
     public function __construct()
     {
 
+        $this->data['get'] = $_GET;
+        $this->data['post'] = $_POST;
+
+        unset($this->data['get']['a']);
+
         include (ADMIN_ROOT . '/Templates/default/head.html');
 
     }

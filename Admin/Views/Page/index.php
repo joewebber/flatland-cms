@@ -4,59 +4,34 @@
   if (!empty($this->data))
   {
   ?>
-<table cellspacing="0">
+<table cellspacing="0" class="width-100">
   <thead>
-    <th>
-      <td>Name</td>
-      <td>Filename</td>
-      <td>Page Title</td>
-    </th>
+    <tr>
+      <th>Name</th>
+      <th>Filename</th>
+      <th>Page Title</th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
-  <?php foreach ($this->data as $_page)
-        {
-        ?>
-        <tr>
-            <td><?php echo $_page['title']; ?></td>
-            <td><?php echo $_page['filename']; ?></td>
-            <td><?php echo $_page['head-page-title']; ?></td>
-            <td><a onclick="showEditor()" href="#">Edit</a></td>
-            <div id="content" style="display: none"><?php echo $_page['content']; ?></div>
-        </tr>
-        <script type="text/jsx">
-          function showEditor() {
-          var MarkdownEditor = React.createClass({
-            getInitialState: function() {
-              return {value: document.getElementById("content").innerHTML};
-            },
-            handleChange: function() {
-              this.setState({value: React.findDOMNode(this.refs.textarea).value});
-            },
-            render: function() {
-              return (
-                <div className="MarkdownEditor">
-                  <textarea id="pageEditor"
-                    onChange={this.handleChange}
-                    ref="textarea"
-                    defaultValue={this.state.value} />
-                  <div
-                    className="content"
-                    dangerouslySetInnerHTML={{
-                      __html: marked(this.state.value, {sanitize: true})
-                    }}
-                  />
-                </div>
-              );
-            }
-          });
+  <?php
 
-          React.render(<MarkdownEditor />, document.getElementById("editor"));
-        }
-        </script>
-  <?php  } ?>
+      $i = 0;
+
+      foreach ($this->data as $_page) {
+
+        $rowClass = ($i % 2 == 0) ? 'row-even' : 'row-odd';
+
+        ?>
+        <tr class="<?php echo $rowClass; ?>">
+            <td class="width-25"><?php echo $_page['title']; ?></td>
+            <td class="width-25"><?php echo $_page['filename']; ?></td>
+            <td class="width-25"><?php echo $_page['head-page-title']; ?></td>
+            <td class="width-10 text-right"><button onclick="window.location.href = '/Admin/index.php?a=Page/Edit&title=<?php echo strtolower($_page['title']); ?>'">Edit</button></td>
+        </tr>
+  <?php $i++; } ?>
   </tbody>
 </table>
 <?php
   }
   ?>
-<div id="editor"></div>
