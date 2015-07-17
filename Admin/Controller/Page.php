@@ -1,6 +1,6 @@
 <?php
 
-use \Helper\Xml, \Helper\File;
+use \Helper\Xml, \Helper\File, \Helper\Data;
 
 namespace Controller;
 
@@ -40,10 +40,10 @@ class Page extends Controller
             $parts = explode('.', $file);
 
             // Get page information from xml file
-            $this->data[$parts[0]] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file);
+            $this->data['pages'][$parts[0]] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file);
 
             // Get the content from the markdown file
-            $this->data[$parts[0]]['content'] = file_get_contents(APP_ROOT . '/Data/Content/' . $parts[0] . '.md');
+            $this->data['pages'][$parts[0]]['content'] = \Helper\Data::get(APP_ROOT . '/Data/Content/' . $parts[0] . '.md');
 
         }
 
@@ -58,7 +58,7 @@ class Page extends Controller
       $this->data[0] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file . '.xml');
 
       // Get the content from the markdown file
-      $this->data[0]['content'] = file_get_contents(APP_ROOT . '/Data/Content/' . $file . '.md');
+      $this->data[0]['content'] = \Helper\Data::get(APP_ROOT . '/Data/Content/' . $file . '.md');
 
       // Include the view
       include (ADMIN_ROOT . '/Views/Page/edit.php');
@@ -68,7 +68,16 @@ class Page extends Controller
     protected function _save()
     {
 
-        file_put_contents(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']);
+        if (\Helper\Data::save(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']))
+        {
+          $message = "Page saved";
+        }
+        else
+        {
+          $message = "Page could not be saved";
+        }
+
+        header('Location: index.php?a=Page/Edit&title=' . $this->data['get']['title'] . "&message=" . urlencode($message));
 
     }
 

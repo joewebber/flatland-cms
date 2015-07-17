@@ -1,4 +1,4 @@
-<h1>Pages</h1>
+<h1 class="heading-admin">Pages</h1>
 <?php
 
   if (!empty($this->data))
@@ -18,7 +18,7 @@
 
       $i = 0;
 
-      foreach ($this->data as $_page) {
+      foreach ($this->data['pages'] as $_page) {
 
         $rowClass = ($i % 2 == 0) ? 'row-even' : 'row-odd';
 

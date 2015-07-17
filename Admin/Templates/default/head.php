@@ -17,12 +17,15 @@
     <nav>
       <ul>
         <li><a href="/">Dashboard</a></li>
-        <li><a href="/Admin/Pages">Pages</a></li>
-        <li><a href="/Admin/Menus">Menus</a></li>
-        <li><a href="/Admin/Modules">Modules</a></li>
-        <li><a href="/Admin/Images">Images</a></li>
+        <li><a href="index.php?a=Page">Pages</a></li>
+        <li><a href="index.php?a=Menu">Menus</a></li>
+        <li><a href="index.php?a=Module">Modules</a></li>
+        <li><a href="index.php?a=Image">Images</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="container">
+    <?php if (isset($message)) { ?>
+      <div class="message"><?php echo $message; ?></div>
+    <?php } ?>

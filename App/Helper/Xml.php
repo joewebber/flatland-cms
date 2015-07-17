@@ -19,7 +19,7 @@ final class Xml
         }
         else
         {
-            //throw new Exception('Unable to read XML file: ' . $file);
+            throw new Exception('Unable to read XML file: ' . $file);
         }
 
     }

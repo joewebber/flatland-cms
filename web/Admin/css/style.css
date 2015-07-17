@@ -57,6 +57,15 @@ button {
   cursor: pointer;
 }
 
+.message {
+  margin: 10px 0;
+  font-size: 1.3em;
+  padding: 10px 5px;
+  background: #c1cfd9;
+  color: #2e3641;
+  opacity: 0.5;
+}
+
 .faded-blue {
   background: #c1cfd9;
 }

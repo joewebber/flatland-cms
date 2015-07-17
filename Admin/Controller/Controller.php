@@ -15,14 +15,18 @@ abstract class Controller
 
         unset($this->data['get']['a']);
 
-        include (ADMIN_ROOT . '/Templates/default/head.html');
+        if (isset($_GET['message'])) {
+          $message = $_GET['message'];
+        }
+
+        include (ADMIN_ROOT . '/Templates/default/head.php');
 
     }
 
     public function __destruct()
     {
 
-        include (ADMIN_ROOT . '/Templates/default/footer.html');
+        include (ADMIN_ROOT . '/Templates/default/footer.php');
 
     }
 

@@ -8,7 +8,9 @@ define('APP_ROOT', realpath(__DIR__) . '/../../' . APP_FOLDER);
 
 define('ADMIN_ROOT', realpath(__DIR__) . '/../../' . ADMIN_FOLDER);
 
-require(APP_ROOT . '/Config/defines.php');
+define('WEB_ROOT', realpath(__DIR__) . '/../../web');
+
+require(APP_ROOT . '/../vendor/autoload.php');
 
 spl_autoload_register('flatland_autoloader');
 

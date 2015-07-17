@@ -1,10 +1,10 @@
 <?php
 
-use \Helper\Xml, \Helper\File;
+use \Helper\Xml, \Helper\File, \Helper\Data;
 
 namespace Controller;
 
-final class Generator
+final class Generator extends Controller
 {
 
     protected $_menus = array();
@@ -16,7 +16,11 @@ final class Generator
     public function __construct($method = '_index')
     {
 
-        $this->$method();
+      // Load the parent class
+      parent::__construct();
+
+      // Run the specified method
+      $this->$method();
 
     }
 
@@ -30,6 +34,9 @@ final class Generator
         $this->_getModules();
 
         $this->_writePages();
+
+        // Include the view
+        include (ADMIN_ROOT . '/Views/Generator/index.php');
 
     }
 
@@ -76,17 +83,13 @@ final class Generator
             if (!file_exists(WEB_ROOT . '/' . $page['filename']))
             {
 
-                $fh = fopen(WEB_ROOT . '/' . $page['filename'], 'w');
-
-                fwrite($fh, $data);
-
-                fclose($fh);
+                \Helper\Data::add(WEB_ROOT . '/' . $page['filename'], $data);
 
             }
             else
             {
 
-                file_put_contents(WEB_ROOT . '/' . $page['filename'], $data);
+                \Helper\Data::save(WEB_ROOT . '/' . $page['filename'], $data);
 
             }
 
@@ -118,7 +121,7 @@ final class Generator
 
             $data = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file);
 
-            $data['content'] = $Parsedown->text(file_get_contents(APP_ROOT . '/Data/Content/' . str_replace('.xml', '', $file) . '.md'));
+            $data['content'] = $Parsedown->text(\Helper\Data::get(APP_ROOT . '/Data/Content/' . str_replace('.xml', '', $file) . '.md'));
 
             $this->_pages[pathinfo($file, PATHINFO_FILENAME)] = $data;
 
@@ -167,7 +170,7 @@ final class Generator
         if ($element)
         {
 
-            $data = file_get_contents(APP_ROOT . '/Data/Template/' . $element . '.html');
+            $data = \Helper\Data::get(APP_ROOT . '/Data/Template/' . $element . '.html');
 
             foreach ($replacements as $key => $val)
             {
