@@ -1,8 +1,13 @@
-<h1>Edit Page</h1>
+<h1 class="heading-admin">Edit Page</h1>
 
 <form name="edit" action="index.php?a=Page/Save&title=<?php echo $this->data['get']['title']; ?>" method="post">
-  <button type="submit">Save</button>
-  <div id="editor"></div>
+  <div class="editor-toolbar">
+    <div class="button-set">
+      <button class="faded-blue">Cancel</button>
+      <button type="submit">Save</button>
+    </div>
+  </div>
+  <div id="editor" class="clearfix"></div>
 </form>
 
 <div id="content" style="display: none"><?php echo $this->data[0]['content']; ?></div>

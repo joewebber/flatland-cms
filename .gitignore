@@ -7,3 +7,4 @@ web/images/*.jpg
 web/images/*.gif
 web/images/*.png
 web/js/*.js
+App/Data/*

@@ -5,11 +5,27 @@ body {
   font-size: 62.5%;
 }
 
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix { display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
 a {
   text-decoration: none;
 }
 
-h1 {
+h1.heading-admin {
   color: #2e3641;
   font-size: 3em;
   font-weight: normal;
@@ -39,6 +55,15 @@ button {
   border: none;
   font-size: 1.4em;
   cursor: pointer;
+}
+
+.faded-blue {
+  background: #c1cfd9;
+}
+
+.button-set {
+  float: right;
+  margin: 5px;
 }
 
 td button {
@@ -124,12 +149,29 @@ nav ul li a:hover {
   padding: 0 2%;
 }
 
+#editor {
+  border: 1px solid #eee;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.editor-toolbar {
+  height: 40px;
+  background: #eee;
+}
+
 #pageEditor {
-  border: 1px solid #c1cfd9;
+  border: none;
+  border-right: 1px solid #eee;
   width: 45%;
   margin-right: 2%;
   height: 400px;
   font-family: Asap, sans-serif;
   font-size: 1.3em;
   padding: 1%;
+  background: #fafafa;
+}
+
+.content {
+  font-size: 150%;
 }
