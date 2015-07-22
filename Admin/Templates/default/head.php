@@ -23,6 +23,7 @@
         <li><a href="index.php?a=Image">Images</a></li>
       </ul>
     </nav>
+    <button class="full-height right" onclick="window.location.href = 'index.php?a=Generator'">Generate</button>
   </div>
 
   <div class="container">
