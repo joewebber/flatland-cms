@@ -1,4 +1,5 @@
-<h1 class="heading-admin">Pages</h1>
+<h1 class="heading-admin left">Pages</h1>
+<button class="new-button right" onclick="window.location.href = '/Admin/index.php?a=Page/Edit&title='"><i class="fa fa-plus"></i> New Page</button>
 <?php
 
   if (!empty($this->data))
@@ -27,7 +28,7 @@
             <td class="width-25"><?php echo $_page['title']; ?></td>
             <td class="width-25"><?php echo $_page['filename']; ?></td>
             <td class="width-25"><?php echo $_page['head-page-title']; ?></td>
-            <td class="width-10 text-right"><button onclick="window.location.href = '/Admin/index.php?a=Page/Edit&title=<?php echo strtolower($_page['title']); ?>'">Edit</button></td>
+            <td class="width-10 text-right"><button onclick="window.location.href = '/Admin/index.php?a=Page/Edit&title=<?php echo strtolower($_page['title']); ?>'"><i class="fa fa-pencil"></i> Edit</button></td>
         </tr>
   <?php $i++; } ?>
   </tbody>

@@ -1,6 +1,16 @@
 <h1 class="heading-admin">Edit Page</h1>
 
 <form name="edit" action="index.php?a=Page/Save&title=<?php echo $this->data['get']['title']; ?>" method="post">
+
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title" value="<?php echo $this->data[0]['title']; ?>">
+
+  <label for="head-page-title">Meta Title</label>
+  <input type="text" name="head-page-title" id="head-page-title" value="<?php echo $this->data[0]['head-page-title']; ?>">
+
+  <label for="head-meta-description">Meta Description</label>
+  <textarea name="head-meta-description" id="head-meta-description"><?php echo $this->data[0]['head-meta-description']; ?></textarea>
+
   <div class="editor-toolbar">
     <div class="button-set">
       <button type="button" class="faded-blue" onclick="window.location.href = 'index.php?a=Page'">Cancel</button>
@@ -39,6 +49,8 @@
   });
 
   React.render(<MarkdownEditor />, document.getElementById("editor"));
+
+  window.onload = function() { document.getElementById("pageEditor").focus(); }
 }
 
 showEditor()

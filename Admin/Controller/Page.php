@@ -55,10 +55,10 @@ class Page extends Controller
       $file = $this->data['get']['title'];
 
       // Get page information from xml file
-      $this->data[0] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file . '.xml');
+      $this->data[0] = (!empty($file)) ? \Helper\Xml::parseFile(APP_ROOT . '/Data/Pages/' . $file . '.xml') : '';
 
       // Get the content from the markdown file
-      $this->data[0]['content'] = \Helper\Data::get(APP_ROOT . '/Data/Content/' . $file . '.md');
+      $this->data[0]['content'] = (!empty($file)) ? \Helper\Data::get(APP_ROOT . '/Data/Content/' . $file . '.md') : '';
 
       // Include the view
       include (ADMIN_ROOT . '/Views/Page/edit.php');
@@ -68,15 +68,13 @@ class Page extends Controller
     protected function _save()
     {
 
-        if (\Helper\Data::save(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']))
-        {
-          $message = "Page saved";
-        }
-        else
-        {
-          $message = "Page could not be saved";
-        }
+        // Save page data
+        
 
+        // Save page content
+        \Helper\Data::save(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']);
+
+        // Redirect and show message
         header('Location: index.php?a=Page/Edit&title=' . $this->data['get']['title'] . "&message=" . urlencode($message));
 
     }

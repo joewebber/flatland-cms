@@ -4,67 +4,61 @@ namespace Helper;
 
 final class Data
 {
-
     public static function add($file, $data)
     {
 
-      try
-      {
+      // Try to create and save file data
+      try {
 
+        // Open file handler
         $fh = fopen($file, 'w');
 
+        // Write the data to the file
         fwrite($fh, $data);
 
+        // Close the file handler
         fclose($fh);
-
-      }
-      catch (Exception $e)
-      {
+      } catch (Exception $e) {
+        // Throw exception
         throw new Exception($e->errorMessage());
       }
-
     }
 
     public static function save($file, $data)
     {
 
-        if (file_exists($file))
-        {
-            if (file_put_contents($file, $data))
-            {
-              return true;
-            }
-            else
-            {
-              throw new Exception('Data could not be saved');
-            }
+      // If the file exists
+      if (file_exists($file)) {
+          // Save the file data
+        if (file_put_contents($file, $data)) {
+            // Return success
+          return true;
+        } else {
+            // Throw exception if data could not be saved
+          throw new Exception('Data could not be saved');
         }
-        else
-        {
-            throw new Exception('File: ' . $file . ' does not exist');
-        }
-
+      } else {
+          // Throw exception if file doesn't exist
+        throw new Exception('File: '.$file.' does not exist');
+      }
     }
 
     public static function get($file)
     {
 
-      if (file_exists($file))
-      {
-          if ($data = file_get_contents($file))
-          {
+      // If the file exists
+      if (file_exists($file)) {
+          // Get the data
+          if ($data = file_get_contents($file)) {
+              // Return the data
             return $data;
-          }
-          else
-          {
+          } else {
+              // Throw exception if data could not be saved
             throw new Exception('Data could not be retrieved');
           }
+      } else {
+          // Throw exception if file does not exist
+          throw new Exception('File: '.$file.' does not exist');
       }
-      else
-      {
-          throw new Exception('File: ' . $file . ' does not exist');
-      }
-
     }
-
 }
