@@ -69,7 +69,7 @@ class Page extends Controller
     {
 
         // Save page data
-        
+        \Helper\Xml::saveFile(APP_ROOT . '/Data/Pages/' . $this->data['post']['title'] . '.xml', array('title' => $this->data['post']['title'], 'head-page-title' => $this->data['post']['head-page-title'], 'head-meta-description' => $this->data['post']['head-meta-description'], 'filename' => $this->data['post']['title'] . '.xml'));
 
         // Save page content
         \Helper\Data::save(APP_ROOT . '/Data/Content/' . $this->data['get']['title'] . '.md', $this->data['post']['content']);

@@ -1,15 +1,15 @@
 <h1 class="heading-admin">Edit Page</h1>
 
-<form name="edit" action="index.php?a=Page/Save&title=<?php echo $this->data['get']['title']; ?>" method="post">
+<form name="edit" action="index.php?a=Page/Save&title=<?php echo (isset($this->data['get']['title'])) ? $this->data['get']['title'] : ''; ?>" method="post">
 
   <label for="title">Title</label>
-  <input type="text" name="title" id="title" value="<?php echo $this->data[0]['title']; ?>">
+  <input type="text" name="title" id="title" value="<?php echo (isset($this->data[0]['title'])) ? $this->data[0]['title'] : ''; ?>">
 
   <label for="head-page-title">Meta Title</label>
-  <input type="text" name="head-page-title" id="head-page-title" value="<?php echo $this->data[0]['head-page-title']; ?>">
+  <input type="text" name="head-page-title" id="head-page-title" value="<?php echo (isset($this->data[0]['head-page-title'])) ? $this->data[0]['head-page-title'] : ''; ?>">
 
   <label for="head-meta-description">Meta Description</label>
-  <textarea name="head-meta-description" id="head-meta-description"><?php echo $this->data[0]['head-meta-description']; ?></textarea>
+  <textarea name="head-meta-description" id="head-meta-description"><?php echo (isset($this->data[0]['head-meta-description'])) ? $this->data[0]['head-meta-description'] : ''; ?></textarea>
 
   <div class="editor-toolbar">
     <div class="button-set">
