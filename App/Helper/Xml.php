@@ -24,18 +24,11 @@ final class Xml
 
     }
 
-    public static function saveFile($file, $data)
+    public static function saveFile($readFile, $writeFile, $data)
     {
 
       // Load the data from the file into a variable
-      if (file_exists($file))
-      {
-        $xmlData = simplexml_load_file($file, null, LIBXML_NOCDATA);
-      }
-      else
-      {
-        $xmlData = simplexml_load_file('', null, LIBXML_NOCDATA);
-      }
+      $xmlData = simplexml_load_file($readFile, null, LIBXML_NOCDATA);
 
       // Loop through the data and update the xml
       foreach ($data as $key => $value)
@@ -47,7 +40,7 @@ final class Xml
       }
 
       // Save the new file
-      $xmlData->asXml($file);
+      $xmlData->asXml($writeFile);
 
     }
 

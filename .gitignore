@@ -7,4 +7,6 @@ web/images/*.jpg
 web/images/*.gif
 web/images/*.png
 web/js/*.js
-App/Data/*
+App/Data/*/*.md
+App/Data/*/*.xml
+!App/Data/*/blank.xml

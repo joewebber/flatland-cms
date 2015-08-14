@@ -27,20 +27,18 @@ final class Data
     public static function save($file, $data)
     {
 
-      // If the file exists
-      if (file_exists($file)) {
-          // Save the file data
-        if (file_put_contents($file, $data)) {
-            // Return success
+      // Save the file data
+      if (file_put_contents($file, $data))
+      {
+          // Return success
           return true;
-        } else {
-            // Throw exception if data could not be saved
-          throw new Exception('Data could not be saved');
-        }
-      } else {
-          // Throw exception if file doesn't exist
-        throw new Exception('File: '.$file.' does not exist');
+      } else
+      {
+          // Throw exception if data could not be saved
+          die('Data could not be saved');
+          
       }
+      
     }
 
     public static function get($file)
@@ -54,11 +52,11 @@ final class Data
             return $data;
           } else {
               // Throw exception if data could not be saved
-            throw new Exception('Data could not be retrieved');
+            die('Data could not be retrieved');
           }
       } else {
           // Throw exception if file does not exist
-          throw new Exception('File: '.$file.' does not exist');
+          die('File: '.$file.' does not exist');
       }
     }
 }
