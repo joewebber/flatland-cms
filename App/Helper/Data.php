@@ -28,15 +28,10 @@ final class Data
     {
 
       // Save the file data
-      if (file_put_contents($file, $data))
-      {
-          // Return success
-          return true;
-      } else
-      {
-          // Throw exception if data could not be saved
-          die('Data could not be saved');
-          
+      try {
+        return file_put_contents($file, $data);
+      } catch (Exception $e) {
+          throw new Exception($e->errorMessage());
       }
       
     }
@@ -47,12 +42,11 @@ final class Data
       // If the file exists
       if (file_exists($file)) {
           // Get the data
-          if ($data = file_get_contents($file)) {
-              // Return the data
-            return $data;
-          } else {
-              // Throw exception if data could not be saved
-            die('Data could not be retrieved');
+          try {
+            // Return the data
+            return file_get_contents($file);
+          } catch (Exception $e) {
+              throw new Exception($e->errorMessage());
           }
       } else {
           // Throw exception if file does not exist

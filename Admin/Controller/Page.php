@@ -76,7 +76,7 @@ class Page extends Controller
         
         // Set the filename
         $file = strtolower($this->data['post']['title']);
-        
+
         // Set file to get data from
         $readFile = (file_exists(APP_ROOT . '/Data/Pages/' . $file . '.xml')) ? APP_ROOT . '/Data/Pages/' . $file . '.xml' : APP_ROOT . '/Data/Pages/blank.xml';
 

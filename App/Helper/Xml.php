@@ -10,17 +10,21 @@ final class Xml
 
     }
 
-    public static function parseFile($file)
+    public static function parseFile($file, $asXml = false)
     {
-
-        if ($xmlObject = simplexml_load_file($file, null, LIBXML_NOCDATA))
-        {
-            return json_decode(json_encode((array) $xmlObject), 1);
+      
+      try {
+        $xmlObject = simplexml_load_file($file, null, LIBXML_NOCDATA);
+        
+        if ($asXml) {
+          return $xmlObject;
+        } else {
+          return json_decode(json_encode((array) $xmlObject), 1);
         }
-        else
-        {
-            throw new Exception('Unable to read XML file: ' . $file);
-        }
+        
+      } catch (Exception $e) {
+        throw new Exception($e->errorMessage());
+      }
 
     }
 

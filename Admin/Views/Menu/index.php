@@ -1,4 +1,5 @@
-<h1 class="heading-admin">Menus</h1>
+<h1 class="heading-admin left">Menus</h1>
+<button class="new-button right" onclick="window.location.href = '/Admin/index.php?a=Menu/Edit&title='"><i class="fa fa-plus"></i> New Item</button>
 <?php
 
   if (!empty($this->data))
@@ -27,7 +28,7 @@
             <td class="width-25"><?php echo $_menu['title']; ?></td>
             <td class="width-25"><?php echo $_menu['page']; ?></td>
             <td class="width-25"><?php echo $_menu['slug']; ?></td>
-            <td class="width-10 text-right"><button onclick="window.location.href = '/Admin/index.php?a=Menu/Edit&title=<?php echo strtolower($_menu['title']); ?>'">Edit</button></td>
+            <td class="width-10 text-right"><button onclick="window.location.href = '/Admin/index.php?a=Menu/Edit&title=menu-1&item=<?php echo $_menu['title']; ?>'">Edit</button></td>
         </tr>
   <?php $i++; } ?>
   </tbody>

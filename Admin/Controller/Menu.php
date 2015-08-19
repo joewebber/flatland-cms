@@ -48,11 +48,28 @@ class Menu extends Controller
 
     protected function _edit()
     {
+      
+      // menu 
+      $menu = 'menu-1';
+      
+      // Item
+      $item = (!empty($this->data['get']['item'])) ? $this->data['get']['item'] : '';
+      
+      // Get menu items
+      $items = \Helper\Xml::parseFile(APP_ROOT . '/Data/Menus/' . $menu . '.xml', true);
 
-      $file = $this->data['get']['title'];
+      // Get children
+      $children = $items->items->children();
 
-      // Get page information from xml file
-      $this->data[0] = \Helper\Xml::parseFile(APP_ROOT . '/Data/Menus/' . $file . '.xml');
+      // Loop through and find the one we want
+      foreach ($children as $child) {
+
+        if ((string) $child->title == $this->data['get']['item']) {
+          $this->data[0] = (array) $child;
+          break;
+        }
+        
+      }
 
       // Include the view
       include (ADMIN_ROOT . '/Views/Menu/edit.php');
@@ -62,7 +79,7 @@ class Menu extends Controller
     protected function _save()
     {
 
-        if (\Helper\Data::save(APP_ROOT . '/Data/Menus/' . $this->data['get']['title'] . '.xml', $this->data['post']['content']))
+        if (\Helper\Xml::saveFile(APP_ROOT . '/Data/Menus/menu-1.xml', $this->data['post']['content']))
         {
           $message = "Menu saved";
         }
@@ -71,7 +88,7 @@ class Menu extends Controller
           $message = "Menu could not be saved";
         }
 
-        header('Location: index.php?a=Menu/Edit&title=' . $this->data['get']['title'] . "&message=" . urlencode($message));
+        header('Location: index.php?a=Menu/Edit&item=' . $this->data['get']['item'] . "&message=" . urlencode($message));
 
     }
 

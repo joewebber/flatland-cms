@@ -1,45 +1,25 @@
-<h1 class="heading-admin">Edit Page</h1>
+<h1 class="heading-admin">Edit Menu Item</h1>
 
-<form name="edit" action="index.php?a=Page/Save&title=<?php echo $this->data['get']['title']; ?>" method="post">
+<form name="edit" action="index.php?a=Menu/Save&title=<?php echo $this->data['get']['title']; ?>" method="post">
   <div class="editor-toolbar">
     <div class="button-set">
       <button type="button" class="faded-blue" onclick="window.location.href = 'index.php?a=Page'">Cancel</button>
       <button type="submit">Save</button>
     </div>
   </div>
-  <div id="editor" class="clearfix"></div>
+  
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title" value="<?php echo (isset($this->data[0]['title'])) ? $this->data[0]['title'] : ''; ?>">
+  
+  <label for="slug">Slug</label>
+  <input type="text" name="slug" id="slug" value="<?php echo (isset($this->data[0]['slug'])) ? $this->data[0]['slug'] : ''; ?>">
+  
+  <label for="index">Index</label>
+  <input type="text" name="index" id="index" value="<?php echo (isset($this->data[0]['index'])) ? $this->data[0]['index'] : ''; ?>">
+  
+  <label for="index">Parent</label>
+  <input type="text" name="parent" id="parent" value="<?php echo (isset($this->data[0]['parent'])) ? $this->data[0]['parent'] : ''; ?>">
+  
+  <label for="page">Page</label>
+  <input type="text" name="page" id="page" value="<?php echo (isset($this->data[0]['page'])) ? $this->data[0]['page'] : ''; ?>">
 </form>
-
-<div id="content" style="display: none"><?php echo $this->data[0]['content']; ?></div>
-<script type="text/jsx">
-  function showEditor() {
-  var MarkdownEditor = React.createClass({
-    getInitialState: function() {
-      return {value: document.getElementById("content").innerHTML};
-    },
-    handleChange: function() {
-      this.setState({value: React.findDOMNode(this.refs.textarea).value});
-    },
-    render: function() {
-      return (
-        <div className="MarkdownEditor">
-          <textarea name="content" className="width-50 left" id="pageEditor"
-            onChange={this.handleChange}
-            ref="textarea"
-            defaultValue={this.state.value} />
-          <div
-            className="content width-50 left"
-            dangerouslySetInnerHTML={{
-              __html: marked(this.state.value, {sanitize: true})
-            }}
-          />
-        </div>
-      );
-    }
-  });
-
-  React.render(<MarkdownEditor />, document.getElementById("editor"));
-}
-
-showEditor()
-</script>
