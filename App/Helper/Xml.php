@@ -44,7 +44,7 @@ final class Xml
       }
 
       // Save the new file
-      $xmlData->asXml($writeFile);
+      return $xmlData->asXml($writeFile);
 
     }
 

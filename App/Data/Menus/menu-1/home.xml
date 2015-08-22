@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menuItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../lib/schemas/menuItem.xsd">
+  <title>Home</title>
+  <slug>/</slug>
+  <index>1</index>
+  <parent>0</parent>
+  <page>index</page>
+</menuItem>
