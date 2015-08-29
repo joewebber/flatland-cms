@@ -21,7 +21,6 @@
         <li><a href="index.php?a=Page">Pages</a></li>
         <li><a href="index.php?a=Menu">Menus</a></li>
         <li><a href="index.php?a=Module">Modules</a></li>
-        <li><a href="index.php?a=Image">Images</a></li>
       </ul>
     </nav>
     <button class="full-height right generate-button" onclick="window.location.href = 'index.php?a=Generator'"><i class="fa fa-rocket"></i> Generate</button>
